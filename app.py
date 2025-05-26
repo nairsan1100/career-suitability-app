@@ -3,6 +3,39 @@ from PIL import Image
 
 st.set_page_config(page_title="Career Suitability Assessment", layout="centered")
 
+# Auth0 login (replace with your own domain and client ID)
+import streamlit.components.v1 as components
+
+st.markdown("""
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.13/auth0-spa-js.production.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async () => {
+        const auth0 = await createAuth0Client({
+          domain: 'dev-hfz67rcatqi8c8u5.us.auth0.com',
+          client_id: 'xJHa1LgdXaBX7BgsgBU5h5LMuswPdPf4',
+          cacheLocation: 'localstorage',
+          useRefreshTokens: true,
+          redirect_uri: window.location.origin
+        });
+
+        const isAuthenticated = await auth0.isAuthenticated();
+        if (!isAuthenticated) {
+          await auth0.loginWithRedirect();
+        } else {
+          const user = await auth0.getUser();
+          window.parent.postMessage(JSON.stringify({type: 'auth', email: user.email, name: user.name}), '*');
+        }
+      });
+    </script>
+""", unsafe_allow_html=True)
+
+email = st.experimental_get_query_params().get("email", [None])[0]
+if not email:
+    st.warning("Please wait for authentication...")
+    st.stop()
+
+st.sidebar.success(f"Welcome {email} 👋")
+
 st.title("🎯 Career Suitability Assessment")
 st.caption("By YourCareerGuide.in")
 st.write("Answer the following questions to discover careers that best match your aptitude, interests, personality, and values.")
