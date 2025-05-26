@@ -25,34 +25,36 @@ if user_group == "🎒 High School Student":
         responses[f"{qid}_{key_prefix}"] = st.radio(qtext, qoptions)
 
     st.header("🎨 Interest")
-    responses[f"Q5_{key_prefix}"] = st.radio("5. What sounds more fun to you?", ["A. Building a model", "B. Solving a riddle", "C. Drawing a poster", "D. Helping a classmate"])
-    responses[f"Q6_{key_prefix}"] = st.radio("6. Choose one:", ["A. Organize a shelf", "B. Lead a group", "C. Design a card", "D. Fix a toy"])
-else:
-    st.header("🧠 Aptitude")
-    import random
-    co_questions = [
-        ("Q1", "What is the next number in the series: 3, 6, 12, 24, ___?", ["A. 36", "B. 48", "C. 40", "D. 30"]),
-        ("Q2", "Which word is the opposite of 'benevolent'?", ["A. Kind", "B. Cruel", "C. Friendly", "D. Honest"]),
-        ("Q3", "Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", ["A. 9", "B. 11", "C. 7", "D. 3"]),
-        ("Q4", "Book is to Reading as Fork is to __?", ["A. Drawing", "B. Writing", "C. Stirring", "D. Eating"]),
+    interest_questions = [
+        ("Q5", "What sounds more fun to you?", ["A. Building a model", "B. Solving a riddle", "C. Drawing a poster", "D. Helping a classmate"]),
+        ("Q6", "Choose one:", ["A. Organize a shelf", "B. Lead a group", "C. Design a card", "D. Fix a toy"]),
+    ] if user_group == "🎒 High School Student" else [
+        ("Q5", "Would you rather:", ["A. Fix a broken fan", "B. Solve a math puzzle", "C. Write a poem", "D. Lead a discussion group"]),
+        ("Q6", "Would you rather:", ["A. Organize an event", "B. Sort files", "C. Design a logo", "D. Build a model airplane"]),
     ]
-    random.shuffle(co_questions)
-    for qid, qtext, qoptions in co_questions:
+    random.shuffle(interest_questions)
+    for qid, qtext, qoptions in interest_questions:
         responses[f"{qid}_{key_prefix}"] = st.radio(qtext, qoptions)
 
-    st.header("🎨 Interest")
-    responses[f"Q5_{key_prefix}"] = st.radio("5. Would you rather:", ["A. Fix a broken fan", "B. Solve a math puzzle", "C. Write a poem", "D. Lead a discussion group"])
-    responses[f"Q6_{key_prefix}"] = st.radio("6. Would you rather:", ["A. Organize an event", "B. Sort files", "C. Design a logo", "D. Build a model airplane"])
-    
-st.header("🧬 Personality")
-responses[f"Q7_{key_prefix}"] = st.radio("7. I prefer to work:", ["A. Alone", "B. With a team"])
-responses[f"Q8_{key_prefix}"] = st.radio("8. I’m more:", ["A. Focused on details", "B. Focused on the big picture"])
-responses[f"Q9_{key_prefix}"] = st.radio("9. When stressed, I:", ["A. Take time to reflect", "B. Talk to others for support"])
+    st.header("🧬 Personality")
+    personality_questions = [
+        ("Q7", "I prefer to work:", ["A. Alone", "B. With a team"]),
+        ("Q8", "I’m more:", ["A. Focused on details", "B. Focused on the big picture"]),
+        ("Q9", "When stressed, I:", ["A. Take time to reflect", "B. Talk to others for support"]),
+    ]
+    random.shuffle(personality_questions)
+    for qid, qtext, qoptions in personality_questions:
+        responses[f"{qid}_{key_prefix}"] = st.radio(qtext, qoptions)
 
 st.header("💡 Values")
-responses[f"Q10_{key_prefix}"] = st.radio("10. Which is more important to you?", ["A. Job security", "B. Creative freedom"])
-responses[f"Q11_{key_prefix}"] = st.radio("11. Would you rather:", ["A. Help others, even if pay is low", "B. Earn a high income"])
-responses[f"Q12_{key_prefix}"] = st.radio("12. You value more:", ["A. Recognition & success", "B. Peace and balance"])
+    values_questions = [
+        ("Q10", "Which is more important to you?", ["A. Job security", "B. Creative freedom"]),
+        ("Q11", "Would you rather:", ["A. Help others, even if pay is low", "B. Earn a high income"]),
+        ("Q12", "You value more:", ["A. Recognition & success", "B. Peace and balance"]),
+    ]
+    random.shuffle(values_questions)
+    for qid, qtext, qoptions in values_questions:
+        responses[f"{qid}_{key_prefix}"] = st.radio(qtext, qoptions)
 
 correct_answers = {f"Q1_CO": "B", f"Q2_CO": "B", f"Q3_CO": "A", f"Q4_CO": "D", f"Q1_HS": "B", f"Q2_HS": "A", f"Q3_HS": "D", f"Q4_HS": "C"}
 dimension_mapping = {
