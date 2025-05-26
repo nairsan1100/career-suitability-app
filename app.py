@@ -27,7 +27,7 @@ st.markdown("""
     </script>
 """, unsafe_allow_html=True)
 
-email = st.experimental_get_query_params().get("email", [None])[0]
+email = st.query_params().get("email", [None])[0]
 if not email:
     st.warning("Please wait for authentication...")
     st.stop()
