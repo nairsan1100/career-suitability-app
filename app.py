@@ -29,10 +29,16 @@ if user_group == "🎒 High School Student":
     responses[f"Q6_{key_prefix}"] = st.radio("6. Choose one:", ["A. Organize a shelf", "B. Lead a group", "C. Design a card", "D. Fix a toy"])
 else:
     st.header("🧠 Aptitude")
-    responses[f"Q1_{key_prefix}"] = st.radio("1. What is the next number in the series: 3, 6, 12, 24, ___?", ["A. 36", "B. 48", "C. 40", "D. 30"])
-    responses[f"Q2_{key_prefix}"] = st.radio("2. Which word is the opposite of 'benevolent'?", ["A. Kind", "B. Cruel", "C. Friendly", "D. Honest"])
-    responses[f"Q3_{key_prefix}"] = st.radio("3. Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", ["A. 9", "B. 11", "C. 7", "D. 3"])
-    responses[f"Q4_{key_prefix}"] = st.radio("4. Book is to Reading as Fork is to __?", ["A. Drawing", "B. Writing", "C. Stirring", "D. Eating"])
+    import random
+    co_questions = [
+        ("Q1", "What is the next number in the series: 3, 6, 12, 24, ___?", ["A. 36", "B. 48", "C. 40", "D. 30"]),
+        ("Q2", "Which word is the opposite of 'benevolent'?", ["A. Kind", "B. Cruel", "C. Friendly", "D. Honest"]),
+        ("Q3", "Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", ["A. 9", "B. 11", "C. 7", "D. 3"]),
+        ("Q4", "Book is to Reading as Fork is to __?", ["A. Drawing", "B. Writing", "C. Stirring", "D. Eating"]),
+    ]
+    random.shuffle(co_questions)
+    for qid, qtext, qoptions in co_questions:
+        responses[f"{qid}_{key_prefix}"] = st.radio(qtext, qoptions)
 
     st.header("🎨 Interest")
     responses[f"Q5_{key_prefix}"] = st.radio("5. Would you rather:", ["A. Fix a broken fan", "B. Solve a math puzzle", "C. Write a poem", "D. Lead a discussion group"])
