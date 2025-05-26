@@ -27,9 +27,9 @@ st.markdown("""
     </script>
 """, unsafe_allow_html=True)
 
-email = st.query_params().get("email", [None])[0]
+email = st.text_input("Enter your email to continue:", key="email_input")
 if not email:
-    st.warning("Please wait for authentication...")
+    st.warning("Please enter your email to continue.")
     st.stop()
 
 st.sidebar.success(f"Welcome {email} 👋")
