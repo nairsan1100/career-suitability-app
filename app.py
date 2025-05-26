@@ -47,7 +47,7 @@ if user_group == "🎒 High School Student":
         responses[f"{qid}_{key_prefix}"] = st.radio(qtext, qoptions)
 
 st.header("💡 Values")
-    values_questions = [
+values_questions = [
         ("Q10", "Which is more important to you?", ["A. Job security", "B. Creative freedom"]),
         ("Q11", "Would you rather:", ["A. Help others, even if pay is low", "B. Earn a high income"]),
         ("Q12", "You value more:", ["A. Recognition & success", "B. Peace and balance"]),
