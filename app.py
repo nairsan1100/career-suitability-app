@@ -75,7 +75,6 @@ career_profiles = {
     "Sports Coach / Athlete 🏅": {"Aptitude": 14, "Interest": 17, "Personality": 17, "Values": 15},
     "YouTuber / Content Creator 📹": {"Aptitude": 12, "Interest": 18, "Personality": 16, "Values": 13},
     "Psychologist / Counselor 🧠": {"Aptitude": 14, "Interest": 13, "Personality": 18, "Values": 17}
-},
     "Graphic Designer 🎨": {"Aptitude": 14, "Interest": 18, "Personality": 16, "Values": 15},
     "Civil Services Officer 🏛️": {"Aptitude": 17, "Interest": 14, "Personality": 15, "Values": 18},
     "Entrepreneur 🚀": {"Aptitude": 16, "Interest": 17, "Personality": 15, "Values": 14},
