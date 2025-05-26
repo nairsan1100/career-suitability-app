@@ -7,19 +7,29 @@ st.title("🎯 Career Suitability Assessment")
 st.caption("By YourCareerGuide.in")
 st.write("Answer the following questions to discover careers that best match your aptitude, interests, personality, and values.")
 
+user_group = st.radio("Who are you?", ["🎒 High School Student", "🎓 College Student"])
 responses = {}
 
-st.header("🧠 Aptitude")
-responses["Q1"] = st.radio("1. What is the next number in the series: 3, 6, 12, 24, ___?", [
-    "A. 36", "B. 48", "C. 40", "D. 30"])
-responses["Q2"] = st.radio("2. Which word is the opposite of 'benevolent'?", [
-    "A. Kind", "B. Cruel", "C. Friendly", "D. Honest"])
-responses["Q3"] = st.radio("3. Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", [
-    "A. 9", "B. 11", "C. 7", "D. 3"])
-responses["Q4"] = st.radio("4. Book is to Reading as Fork is to __?", [
-    "A. Drawing", "B. Writing", "C. Stirring", "D. Eating"])
+if user_group == "🎒 High School Student":
+    st.header("🧠 Aptitude")
+    responses["Q1"] = st.radio("1. Which number comes next? 2, 4, 6, 8, ___", ["A. 9", "B. 10", "C. 12", "D. 11"])
+    responses["Q2"] = st.radio("2. What is the opposite of 'happy'?", ["A. Sad", "B. Angry", "C. Excited", "D. Tired"])
+    responses["Q3"] = st.radio("3. Which object does not belong? Pen, Pencil, Eraser, Apple", ["A. Pen", "B. Pencil", "C. Eraser", "D. Apple"])
+    responses["Q4"] = st.radio("4. Book is to Reading as Spoon is to __?", ["A. Writing", "B. Stirring", "C. Eating", "D. Drawing"])
 
-st.header("🎨 Interest")
+    st.header("🎨 Interest")
+    responses["Q5"] = st.radio("5. What sounds more fun to you?", ["A. Building a model", "B. Solving a riddle", "C. Drawing a poster", "D. Helping a classmate"])
+    responses["Q6"] = st.radio("6. Choose one:", ["A. Organize a shelf", "B. Lead a group", "C. Design a card", "D. Fix a toy"])
+else:
+    st.header("🧠 Aptitude")
+    responses["Q1"] = st.radio("1. What is the next number in the series: 3, 6, 12, 24, ___?", ["A. 36", "B. 48", "C. 40", "D. 30"])
+    responses["Q2"] = st.radio("2. Which word is the opposite of 'benevolent'?", ["A. Kind", "B. Cruel", "C. Friendly", "D. Honest"])
+    responses["Q3"] = st.radio("3. Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", ["A. 9", "B. 11", "C. 7", "D. 3"])
+    responses["Q4"] = st.radio("4. Book is to Reading as Fork is to __?", ["A. Drawing", "B. Writing", "C. Stirring", "D. Eating"])
+
+    st.header("🎨 Interest")
+    responses["Q5"] = st.radio("5. Would you rather:", ["A. Fix a broken fan", "B. Solve a math puzzle", "C. Write a poem", "D. Lead a discussion group"])
+    responses["Q6"] = st.radio("6. Would you rather:", ["A. Organize an event", "B. Sort files", "C. Design a logo", "D. Build a model airplane"])
 responses["Q5"] = st.radio("5. Would you rather:", [
     "A. Fix a broken fan", "B. Solve a math puzzle", "C. Write a poem", "D. Lead a discussion group"])
 responses["Q6"] = st.radio("6. Would you rather:", [
