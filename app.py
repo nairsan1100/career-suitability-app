@@ -4,7 +4,7 @@ from PIL import Image
 st.set_page_config(page_title="Career Suitability Assessment", layout="centered")
 
 st.title("🎯 Career Suitability Assessment")
-st.caption("By Valora")
+st.caption("By YourCareerGuide.in")
 st.write("Answer the following questions to discover careers that best match your aptitude, interests, personality, and values.")
 
 user_group = st.radio("Who are you?", ["🎒 High School Student", "🎓 College Student"])
@@ -13,10 +13,16 @@ responses = {}
 
 if user_group == "🎒 High School Student":
     st.header("🧠 Aptitude")
-    responses[f"Q1_{key_prefix}"] = st.radio("1. Which number comes next? 2, 4, 6, 8, ___", ["A. 9", "B. 10", "C. 12", "D. 11"])
-    responses[f"Q2_{key_prefix}"] = st.radio("2. What is the opposite of 'happy'?", ["A. Sad", "B. Angry", "C. Excited", "D. Tired"])
-    responses[f"Q3_{key_prefix}"] = st.radio("3. Which object does not belong? Pen, Pencil, Eraser, Apple", ["A. Pen", "B. Pencil", "C. Eraser", "D. Apple"])
-    responses[f"Q4_{key_prefix}"] = st.radio("4. Book is to Reading as Spoon is to __?", ["A. Writing", "B. Stirring", "C. Eating", "D. Drawing"])
+    import random
+    hs_questions = [
+        ("Q1", "Which number comes next? 2, 4, 6, 8, ___", ["A. 9", "B. 10", "C. 12", "D. 11"]),
+        ("Q2", "What is the opposite of 'happy'?", ["A. Sad", "B. Angry", "C. Excited", "D. Tired"]),
+        ("Q3", "Which object does not belong? Pen, Pencil, Eraser, Apple", ["A. Pen", "B. Pencil", "C. Eraser", "D. Apple"]),
+        ("Q4", "Book is to Reading as Spoon is to __?", ["A. Writing", "B. Stirring", "C. Eating", "D. Drawing"]),
+    ]
+    random.shuffle(hs_questions)
+    for qid, qtext, qoptions in hs_questions:
+        responses[f"{qid}_{key_prefix}"] = st.radio(qtext, qoptions)
 
     st.header("🎨 Interest")
     responses[f"Q5_{key_prefix}"] = st.radio("5. What sounds more fun to you?", ["A. Building a model", "B. Solving a riddle", "C. Drawing a poster", "D. Helping a classmate"])
