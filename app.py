@@ -1,41 +1,40 @@
-
 import streamlit as st
 from PIL import Image
 
 st.set_page_config(page_title="Career Suitability Assessment", layout="centered")
 
-# Optional logo (replace with your own image path or URL)
-# logo = Image.open("logo.png")
-# st.image(logo, width=120)
-
 st.title("🎯 Career Suitability Assessment")
 st.caption("By YourCareerGuide.in")
 st.write("Answer the following questions to discover careers that best match your aptitude, interests, personality, and values.")
 
-# Store responses
 responses = {}
 
 st.header("🧠 Aptitude")
-responses["Q1"] = st.radio("1. What is the next number in the series: 3, 6, 12, 24, ___?", ["A", "B", "C", "D"])
-responses["Q2"] = st.radio("2. Opposite of 'benevolent'?", ["A", "B", "C", "D"])
-responses["Q3"] = st.radio("3. Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", ["A", "B", "C", "D"])
-responses["Q4"] = st.radio("4. Book is to Reading as Fork is to __?", ["A", "B", "C", "D"])
+responses["Q1"] = st.radio("1. What is the next number in the series: 3, 6, 12, 24, ___?", [
+    "A. 36", "B. 48", "C. 40", "D. 30"])
+responses["Q2"] = st.radio("2. Which word is the opposite of 'benevolent'?", [
+    "A. Kind", "B. Cruel", "C. Friendly", "D. Honest"])
+responses["Q3"] = st.radio("3. Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", [
+    "A. 9", "B. 11", "C. 7", "D. 3"])
+responses["Q4"] = st.radio("4. Book is to Reading as Fork is to __?", [
+    "A. Drawing", "B. Writing", "C. Stirring", "D. Eating"])
 
 st.header("🎨 Interest")
-responses["Q5"] = st.radio("5. Would you rather fix a broken fan or lead a discussion group?", ["A", "B", "C", "D"])
-responses["Q6"] = st.radio("6. Would you rather design a logo or build a model airplane?", ["A", "B", "C", "D"])
+responses["Q5"] = st.radio("5. Would you rather:", [
+    "A. Fix a broken fan", "B. Solve a math puzzle", "C. Write a poem", "D. Lead a discussion group"])
+responses["Q6"] = st.radio("6. Would you rather:", [
+    "A. Organize an event", "B. Sort files", "C. Design a logo", "D. Build a model airplane"])
 
 st.header("🧬 Personality")
-responses["Q7"] = st.radio("7. I prefer to work:", ["A", "B"])
-responses["Q8"] = st.radio("8. I’m more:", ["A", "B"])
-responses["Q9"] = st.radio("9. When stressed, I:", ["A", "B"])
+responses["Q7"] = st.radio("7. I prefer to work:", ["A. Alone", "B. With a team"])
+responses["Q8"] = st.radio("8. I’m more:", ["A. Focused on details", "B. Focused on the big picture"])
+responses["Q9"] = st.radio("9. When stressed, I:", ["A. Take time to reflect", "B. Talk to others for support"])
 
 st.header("💡 Values")
-responses["Q10"] = st.radio("10. Which is more important to you?", ["A", "B"])
-responses["Q11"] = st.radio("11. Would you rather help others or earn more?", ["A", "B"])
-responses["Q12"] = st.radio("12. You value more:", ["A", "B"])
+responses["Q10"] = st.radio("10. Which is more important to you?", ["A. Job security", "B. Creative freedom"])
+responses["Q11"] = st.radio("11. Would you rather:", ["A. Help others, even if pay is low", "B. Earn a high income"])
+responses["Q12"] = st.radio("12. You value more:", ["A. Recognition & success", "B. Peace and balance"])
 
-# Define scoring logic
 correct_answers = {"Q1": "B", "Q2": "B", "Q3": "A", "Q4": "D"}
 dimension_mapping = {
     "Interest": ["Q5", "Q6"],
@@ -44,16 +43,14 @@ dimension_mapping = {
 }
 scores = {"Aptitude": 0, "Interest": 0, "Personality": 0, "Values": 0}
 
-# Calculate scores
 for q in correct_answers:
-    if responses.get(q) == correct_answers[q]:
+    if responses.get(q, "").startswith(correct_answers[q]):
         scores["Aptitude"] += 5
 for dim, questions in dimension_mapping.items():
     for q in questions:
-        if responses.get(q) == "A":
+        if responses.get(q, "").startswith("A"):
             scores[dim] += 5
 
-# Weighted scoring
 weights = {"Aptitude": 0.30, "Interest": 0.30, "Personality": 0.25, "Values": 0.15}
 weighted_scores = {
     dim: round((score / 20) * 100 * weights[dim], 2)
@@ -61,7 +58,6 @@ weighted_scores = {
 }
 total_score = sum(weighted_scores.values())
 
-# Match careers
 career_profiles = {
     "Software Engineer 💻": {"Aptitude": 18, "Interest": 15, "Personality": 14, "Values": 12},
     "Graphic Designer 🎨": {"Aptitude": 14, "Interest": 18, "Personality": 16, "Values": 15},
