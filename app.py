@@ -4,7 +4,7 @@ from PIL import Image
 st.set_page_config(page_title="Career Suitability Assessment", layout="centered")
 
 st.title("🎯 Career Suitability Assessment")
-st.caption("By YourCareerGuide.in")
+st.caption("By Valora")
 st.write("Answer the following questions to discover careers that best match your aptitude, interests, personality, and values.")
 
 user_group = st.radio("Who are you?", ["🎒 High School Student", "🎓 College Student"])
