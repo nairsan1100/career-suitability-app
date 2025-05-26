@@ -102,8 +102,7 @@ if st.button("🔍 Get My Career Match"):
     st.subheader("Your Weighted Scores")
     for dim, score in weighted_scores.items():
         st.write(f"{dim}: {score}%")
-    st.write(f"
-Total Suitability Score: {total_score}%")
+    st.write(f"Total Suitability Score: {total_score}%")
 
     st.subheader("Top Career Matches")
     career_scores = {}
@@ -114,11 +113,11 @@ Total Suitability Score: {total_score}%")
         career_scores[career] = round(match_score, 2)
 
     sorted_matches = sorted(career_scores.items(), key=lambda x: x[1], reverse=True)
-        timestamp = datetime.datetime.now().isoformat()
+    timestamp = datetime.datetime.now().isoformat()
     top_match = sorted_matches[0][0]
     with open("responses_log.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([timestamp, email, total_score, top_match])
 
     for career, score in sorted_matches:
-        st.write(f"{career}: {score}% match")    responses[qid] = st.radio(question, options, key=qid)
+        st.write(f"{career}: {score}% match")
