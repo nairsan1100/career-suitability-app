@@ -28,13 +28,7 @@ else:
     responses["Q4"] = st.radio("4. Book is to Reading as Fork is to __?", ["A. Drawing", "B. Writing", "C. Stirring", "D. Eating"])
 
     st.header("🎨 Interest")
-    responses["Q5"] = st.radio("5. Would you rather:", ["A. Fix a broken fan", "B. Solve a math puzzle", "C. Write a poem", "D. Lead a discussion group"])
-    responses["Q6"] = st.radio("6. Would you rather:", ["A. Organize an event", "B. Sort files", "C. Design a logo", "D. Build a model airplane"])
-responses["Q5"] = st.radio("5. Would you rather:", [
-    "A. Fix a broken fan", "B. Solve a math puzzle", "C. Write a poem", "D. Lead a discussion group"])
-responses["Q6"] = st.radio("6. Would you rather:", [
-    "A. Organize an event", "B. Sort files", "C. Design a logo", "D. Build a model airplane"])
-
+    
 st.header("🧬 Personality")
 responses["Q7"] = st.radio("7. I prefer to work:", ["A. Alone", "B. With a team"])
 responses["Q8"] = st.radio("8. I’m more:", ["A. Focused on details", "B. Focused on the big picture"])
