@@ -76,28 +76,6 @@ career_profiles = {
     "YouTuber / Content Creator 📹": {"Aptitude": 12, "Interest": 18, "Personality": 16, "Values": 13},
     "Psychologist / Counselor 🧠": {"Aptitude": 14, "Interest": 13, "Personality": 18, "Values": 17}
 }
-    "Graphic Designer 🎨": {"Aptitude": 14, "Interest": 18, "Personality": 16, "Values": 15},
-    "Civil Services Officer 🏛️": {"Aptitude": 17, "Interest": 14, "Personality": 15, "Values": 18},
-    "Entrepreneur 🚀": {"Aptitude": 16, "Interest": 17, "Personality": 15, "Values": 14},
-    "Teacher 👩‍🏫": {"Aptitude": 14, "Interest": 12, "Personality": 16, "Values": 18},
-    "Digital Marketer 📱": {"Aptitude": 12, "Interest": 16, "Personality": 14, "Values": 13},
-    "Chartered Accountant (CA) 💼": {"Aptitude": 18, "Interest": 14, "Personality": 15, "Values": 12},
-    "IAS/IPS Officer 🛡️": {"Aptitude": 17, "Interest": 15, "Personality": 16, "Values": 18},
-    "Data Scientist 📊": {"Aptitude": 18, "Interest": 17, "Personality": 14, "Values": 13},
-    "Doctor (MBBS) 🩺": {"Aptitude": 17, "Interest": 15, "Personality": 15, "Values": 16},
-    "Lawyer ⚖️": {"Aptitude": 15, "Interest": 16, "Personality": 17, "Values": 14},
-    "Architect 🏗️": {"Aptitude": 14, "Interest": 18, "Personality": 16, "Values": 13},
-    "UX/UI Designer 🖌️": {"Aptitude": 13, "Interest": 18, "Personality": 15, "Values": 14},
-    "Sports Coach / Athlete 🏅": {"Aptitude": 14, "Interest": 17, "Personality": 17, "Values": 15},
-    "YouTuber / Content Creator 📹": {"Aptitude": 12, "Interest": 18, "Personality": 16, "Values": 13},
-    "Psychologist / Counselor 🧠": {"Aptitude": 14, "Interest": 13, "Personality": 18, "Values": 17}
-},
-    "Graphic Designer 🎨": {"Aptitude": 14, "Interest": 18, "Personality": 16, "Values": 15},
-    "Civil Services Officer 🏛️": {"Aptitude": 17, "Interest": 14, "Personality": 15, "Values": 18},
-    "Entrepreneur 🚀": {"Aptitude": 16, "Interest": 17, "Personality": 15, "Values": 14},
-    "Teacher 👩‍🏫": {"Aptitude": 14, "Interest": 12, "Personality": 16, "Values": 18},
-    "Digital Marketer 📱": {"Aptitude": 12, "Interest": 16, "Personality": 14, "Values": 13}
-}
 
 if st.button("🔍 Get My Career Match"):
     st.subheader("Your Weighted Scores")
