@@ -12,38 +12,38 @@ responses = {}
 
 if user_group == "🎒 High School Student":
     st.header("🧠 Aptitude")
-    responses[f"Q1_{user_group[:2]}"] = st.radio("1. Which number comes next? 2, 4, 6, 8, ___", ["A. 9", "B. 10", "C. 12", "D. 11"])
-    responses[f"Q2_{user_group[:2]}"] = st.radio("2. What is the opposite of 'happy'?", ["A. Sad", "B. Angry", "C. Excited", "D. Tired"])
-    responses[f"Q3_{user_group[:2]}"] = st.radio("3. Which object does not belong? Pen, Pencil, Eraser, Apple", ["A. Pen", "B. Pencil", "C. Eraser", "D. Apple"])
-    responses[f"Q4_{user_group[:2]}"] = st.radio("4. Book is to Reading as Spoon is to __?", ["A. Writing", "B. Stirring", "C. Eating", "D. Drawing"])
+    responses[f"Q1"] = st.radio("1. Which number comes next? 2, 4, 6, 8, ___", ["A. 9", "B. 10", "C. 12", "D. 11"])
+    responses[f"Q2"] = st.radio("2. What is the opposite of 'happy'?", ["A. Sad", "B. Angry", "C. Excited", "D. Tired"])
+    responses[f"Q3"] = st.radio("3. Which object does not belong? Pen, Pencil, Eraser, Apple", ["A. Pen", "B. Pencil", "C. Eraser", "D. Apple"])
+    responses[f"Q4"] = st.radio("4. Book is to Reading as Spoon is to __?", ["A. Writing", "B. Stirring", "C. Eating", "D. Drawing"])
 
     st.header("🎨 Interest")
-    responses[f"Q5_{user_group[:2]}"] = st.radio("5. What sounds more fun to you?", ["A. Building a model", "B. Solving a riddle", "C. Drawing a poster", "D. Helping a classmate"])
-    responses[f"Q6_{user_group[:2]}"] = st.radio("6. Choose one:", ["A. Organize a shelf", "B. Lead a group", "C. Design a card", "D. Fix a toy"])
+    responses[f"Q5"] = st.radio("5. What sounds more fun to you?", ["A. Building a model", "B. Solving a riddle", "C. Drawing a poster", "D. Helping a classmate"])
+    responses[f"Q6"] = st.radio("6. Choose one:", ["A. Organize a shelf", "B. Lead a group", "C. Design a card", "D. Fix a toy"])
 else:
     st.header("🧠 Aptitude")
-    responses[f"Q1_{user_group[:2]}"] = st.radio("1. What is the next number in the series: 3, 6, 12, 24, ___?", ["A. 36", "B. 48", "C. 40", "D. 30"])
-    responses[f"Q2_{user_group[:2]}"] = st.radio("2. Which word is the opposite of 'benevolent'?", ["A. Kind", "B. Cruel", "C. Friendly", "D. Honest"])
-    responses[f"Q3_{user_group[:2]}"] = st.radio("3. Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", ["A. 9", "B. 11", "C. 7", "D. 3"])
-    responses[f"Q4_{user_group[:2]}"] = st.radio("4. Book is to Reading as Fork is to __?", ["A. Drawing", "B. Writing", "C. Stirring", "D. Eating"])
+    responses[f"Q1"] = st.radio("1. What is the next number in the series: 3, 6, 12, 24, ___?", ["A. 36", "B. 48", "C. 40", "D. 30"])
+    responses[f"Q2"] = st.radio("2. Which word is the opposite of 'benevolent'?", ["A. Kind", "B. Cruel", "C. Friendly", "D. Honest"])
+    responses[f"Q3"] = st.radio("3. Which number doesn’t belong: 2, 3, 5, 7, 9, 11?", ["A. 9", "B. 11", "C. 7", "D. 3"])
+    responses[f"Q4"] = st.radio("4. Book is to Reading as Fork is to __?", ["A. Drawing", "B. Writing", "C. Stirring", "D. Eating"])
 
     st.header("🎨 Interest")
     
 st.header("🧬 Personality")
-responses[f"Q7_{user_group[:2]}"] = st.radio("7. I prefer to work:", ["A. Alone", "B. With a team"])
-responses[f"Q8_{user_group[:2]}"] = st.radio("8. I’m more:", ["A. Focused on details", "B. Focused on the big picture"])
-responses[f"Q9_{user_group[:2]}"] = st.radio("9. When stressed, I:", ["A. Take time to reflect", "B. Talk to others for support"])
+responses[f"Q7"] = st.radio("7. I prefer to work:", ["A. Alone", "B. With a team"])
+responses[f"Q8"] = st.radio("8. I’m more:", ["A. Focused on details", "B. Focused on the big picture"])
+responses[f"Q9"] = st.radio("9. When stressed, I:", ["A. Take time to reflect", "B. Talk to others for support"])
 
 st.header("💡 Values")
-responses[f"Q10_{user_group[:2]}"] = st.radio("10. Which is more important to you?", ["A. Job security", "B. Creative freedom"])
-responses[f"Q11_{user_group[:2]}"] = st.radio("11. Would you rather:", ["A. Help others, even if pay is low", "B. Earn a high income"])
-responses[f"Q12_{user_group[:2]}"] = st.radio("12. You value more:", ["A. Recognition & success", "B. Peace and balance"])
+responses[f"Q10"] = st.radio("10. Which is more important to you?", ["A. Job security", "B. Creative freedom"])
+responses[f"Q11"] = st.radio("11. Would you rather:", ["A. Help others, even if pay is low", "B. Earn a high income"])
+responses[f"Q12"] = st.radio("12. You value more:", ["A. Recognition & success", "B. Peace and balance"])
 
-correct_answers = {f"Q1_{user_group[:2]}": "B", f"Q2_{user_group[:2]}": "B", f"Q3_{user_group[:2]}": "A", f"Q4_{user_group[:2]}": "D"}
+correct_answers = {f"Q1": "B", f"Q2": "B", f"Q3": "A", f"Q4": "D"}
 dimension_mapping = {
-    "Interest": [f"Q5_{user_group[:2]}", f"Q6_{user_group[:2]}"],
-    "Personality": [f"Q7_{user_group[:2]}", f"Q8_{user_group[:2]}", f"Q9_{user_group[:2]}"],
-    "Values": [f"Q10_{user_group[:2]}", f"Q11_{user_group[:2]}", f"Q12_{user_group[:2]}"]
+    "Interest": [f"Q5", f"Q6"],
+    "Personality": [f"Q7", f"Q8", f"Q9"],
+    "Values": [f"Q10", f"Q11", f"Q12"]
 }
 scores = {"Aptitude": 0, "Interest": 0, "Personality": 0, "Values": 0}
 
